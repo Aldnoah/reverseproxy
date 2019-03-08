@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    homeassistant:
+        image: homeassistant/raspberrypi3-homeassistant
+        volumes:
+            - /media/sdb1/homeassist:/config
+        networks:
+            - homeassist
+        deploy:
+            restart_policy:
+                condition: on-failure
+        ports:
+            - "8555:8231/tcp"
+            - "8555:8231/udp"
+networks:
+    homeassist:

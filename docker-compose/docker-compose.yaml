@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    nginx:
+        image: nginx
+        deploy:
+            restart_policy:
+                 condition: on-failure
+        ports:
+            - "8080:80"
+        networks: 
+            - hasstest
+networks:
+    hasstest:    
